@@ -1,0 +1,19 @@
+name: Publish Lists
+on:
+  push:
+  schedule:
+  - cron: '0 0 * * *'
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout 🛎️
+      uses: actions/checkout@v2.3.4
+    - name: Build 🔧
+      run: make
+    - name: Deploy 🚀
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: dns.cloudshare.download
+        username: ci-dns-lists
+        password: ${{ secrets.FTP_PASSWD }}

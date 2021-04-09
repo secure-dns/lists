@@ -4,9 +4,9 @@ import (
 	"bufio"
 	"bytes"
 	"crypto/tls"
+	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
 	"strings"
 )
 
@@ -20,7 +20,7 @@ func ReadLists(filename string, lists []string) {
 		res = appendCategory(res, readFromUrl(list))
 	}
 
-	err := os.WriteFile(filename, []byte(strings.Join(res, "\n")), 0644)
+	err := ioutil.WriteFile(filename, []byte(strings.Join(res, "\n")), 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
