@@ -5,6 +5,7 @@ import (
 	"github.com/secure-dns/lists/childprotection"
 	"github.com/secure-dns/lists/cryptojacking"
 	"github.com/secure-dns/lists/security"
+	"github.com/secure-dns/lists/tracking"
 )
 
 func main() {
@@ -12,4 +13,5 @@ func main() {
 	cryptojacking.Build()
 	childprotection.Build()
 	ads.Build()
+	tracking.Build()
 }
