@@ -17,4 +17,4 @@ jobs:
         server: dns.cloudshare.download
         username: ci-dns-lists
         password: ${{ secrets.FTP_PASSWD }}
-        local-dir: ./lists/
+        local-dir: ./res/
