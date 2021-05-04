@@ -1,2 +1,10 @@
+#!/bin/bash
+
 mkdir -p res
-for folder in lists/*/; do tar -czf "res/$(echo $folder | sed -e "s/^lists\///" -e "s/\/$//").tar.gz" "$folder"; done
+FROM=$PWD
+for folder in lists/*/
+do
+  cd $FROM/$folder
+  tar -czf "${FROM}/res/$(echo $folder | sed -e "s/^lists\///" -e "s/\/$//").tar.gz" *
+  cd $FROM
+done
