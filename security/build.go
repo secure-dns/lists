@@ -5,5 +5,5 @@ import (
 )
 
 func Build() {
-	scripts.ReadLists("security/security.txt", scripts.GetLists("security/lists.txt"))
+	scripts.ReadLists("lists/security", scripts.GetLists("security/lists.txt"))
 }
